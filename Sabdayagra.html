@@ -180,14 +180,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
@@ -203,14 +197,8 @@
         }
 
         @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h2 {
@@ -267,9 +255,7 @@
             z-index: -1;
         }
 
-        .btn:hover::before {
-            left: 0;
-        }
+        .btn:hover::before { left: 0; }
 
         .btn:hover {
             color: var(--bg-dark);
@@ -281,9 +267,7 @@
             color: var(--secondary);
         }
 
-        .btn-secondary::before {
-            background: var(--secondary);
-        }
+        .btn-secondary::before { background: var(--secondary); }
 
         .btn-secondary:hover {
             box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
@@ -344,18 +328,14 @@
         .skill-category::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 212, 255, 0.05));
             opacity: 0;
             transition: opacity 0.3s;
         }
 
-        .skill-category:hover::before {
-            opacity: 1;
-        }
+        .skill-category:hover::before { opacity: 1; }
 
         .skill-category:hover {
             border-color: var(--primary);
@@ -416,25 +396,44 @@
         .project-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(255, 0, 255, 0.1));
             opacity: 0;
             transition: opacity 0.4s;
             z-index: 0;
         }
 
-        .project-card:hover::before {
-            opacity: 1;
-        }
+        .project-card:hover::before { opacity: 1; }
 
         .project-card:hover {
             border-color: var(--primary);
             transform: translateY(-10px);
             box-shadow: 0 20px 60px rgba(0, 255, 136, 0.3);
         }
+
+        /* NEW: Featured badge for highlighted card */
+        .project-card.featured {
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+
+        .project-card.featured .project-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: linear-gradient(90deg, rgba(0, 255, 136, 0.2), rgba(0, 212, 255, 0.2));
+            border: 1px solid rgba(0, 255, 136, 0.5);
+            border-radius: 20px;
+            font-family: 'Space Mono', monospace;
+            font-size: 11px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-badge { display: none; }
 
         .project-header {
             padding: 30px;
@@ -469,7 +468,29 @@
             color: var(--text-dim);
             font-size: 15px;
             line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        /* NEW: Project highlights list */
+        .project-highlights {
+            list-style: none;
+            padding: 0;
             margin-bottom: 20px;
+        }
+
+        .project-highlights li {
+            color: var(--text-dim);
+            font-size: 14px;
+            margin-bottom: 6px;
+            padding-left: 18px;
+            position: relative;
+        }
+
+        .project-highlights li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
         }
 
         .project-tech {
@@ -496,8 +517,7 @@
         .timeline::before {
             content: '';
             position: absolute;
-            left: 0;
-            top: 0;
+            left: 0; top: 0;
             height: 100%;
             width: 2px;
             background: linear-gradient(180deg, var(--primary), var(--accent));
@@ -512,10 +532,8 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -50px;
-            top: 0;
-            width: 16px;
-            height: 16px;
+            left: -50px; top: 0;
+            width: 16px; height: 16px;
             border-radius: 50%;
             background: var(--primary);
             border: 3px solid var(--bg-dark);
@@ -524,12 +542,8 @@
         }
 
         @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 20px var(--primary);
-            }
-            50% {
-                box-shadow: 0 0 40px var(--primary);
-            }
+            0%, 100% { box-shadow: 0 0 20px var(--primary); }
+            50% { box-shadow: 0 0 40px var(--primary); }
         }
 
         .timeline-content {
@@ -650,8 +664,7 @@
         /* Scroll Indicator */
         .scroll-indicator {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 0%;
             height: 3px;
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
@@ -661,44 +674,15 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .container {
-                padding: 0 20px;
-            }
-
-            .nav-links {
-                gap: 20px;
-                font-size: 14px;
-            }
-
-            .hero {
-                padding: 60px 0;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .projects-grid,
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .timeline {
-                padding-left: 30px;
-            }
-
-            .timeline-item {
-                padding-left: 20px;
-            }
+            .container { padding: 0 20px; }
+            .nav-links { gap: 20px; font-size: 14px; }
+            .hero { padding: 60px 0; }
+            .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+            section { padding: 60px 0; }
+            .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+            .timeline { padding-left: 30px; }
+            .timeline-item { padding-left: 20px; }
         }
 
         /* Custom Cursor Effect */
@@ -731,7 +715,6 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#achievements">Achievements</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -817,6 +800,24 @@
         <section id="projects">
             <h2 class="section-title" data-number="02">FEATURED PROJECTS</h2>
             <div class="projects-grid">
+
+                <!-- NEW: Feed The Bird Game Roblox -->
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <div class="project-badge">⭐ Latest Project</div>
+                        <div class="project-role">Frontend / Backend Programmer</div>
+                        <h3 class="project-title">Feed The Bird Game</h3>
+                        <div class="project-period">2025 · Roblox Platform</div>
+                        <p class="project-description">A fun and interactive Roblox game where players feed and take care of birds. Developed as a full-stack Roblox project handling both frontend scripting and backend data systems to create a smooth and engaging player experience.</p>
+                        <div class="project-tech">
+                            <span class="tech-badge">Roblox Lua</span>
+                            <span class="tech-badge">Frontend Scripting</span>
+                            <span class="tech-badge">Backend Systems</span>
+                            <span class="tech-badge">Asset Integration</span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project-card">
                     <div class="project-header">
                         <div class="project-role">Frontend/Backend Developer</div>
@@ -906,6 +907,23 @@
         <section id="experience">
             <h2 class="section-title" data-number="03">PROFESSIONAL JOURNEY</h2>
             <div class="timeline">
+
+                <!-- NEW: Feed The Bird Game timeline entry -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Frontend Backend Programmer</h3>
+                        <div class="timeline-company">Feed The Bird Game (Roblox)</div>
+                        <div class="timeline-period">2025</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Implement scripts and assets on game</li>
+                                <li>Adjustments and enhancements for improved gameplay experience</li>
+                                <li>Bug fix and game adjustment for stable performance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3 class="timeline-title">Frontend Backend Programmer</h3>
@@ -956,52 +974,35 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="achievements">
-            <h2 class="section-title" data-number="04">ACHIEVEMENTS & LEADERSHIP</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>🎓 Academic Excellence</h3>
-                    <div class="timeline-description">
-                        <ul>
-                            <li><strong>Cum Laude Graduate</strong> - Bachelor's Degree in Game Design Technology</li>
-                            <li><strong>Highest GPA Recognition</strong> - STMM Yogyakarta 2024</li>
-                            <li><strong>Bachelor's Degree</strong> - Audio-Video Engineering, SMKN 1 Magelang 2016</li>
-                        </ul>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Chairman - Game Technology Student Association</h3>
+                        <div class="timeline-company">STMM Yogyakarta</div>
+                        <div class="timeline-period">2023</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Led the Game Technology Student Association</li>
+                                <li>Organized game development workshops and events</li>
+                                <li>Mentored junior students in game programming</li>
+                                <li>Coordinated team projects and collaborations</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
-                <div class="skill-category">
-                    <h3>👑 Leadership Roles</h3>
-                    <div class="timeline-description">
-                        <ul>
-                            <li><strong>Chairman</strong> - Game Technology Student Association (2023)</li>
-                            <li><strong>Vice Chairman</strong> - Game Technology Student Association (2022)</li>
-                            <li>Led workshops, mentored students, and coordinated team projects</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>🏆 Competition & Events</h3>
-                    <div class="timeline-description">
-                        <ul>
-                            <li><strong>GameJam+ 2023</strong> - Participant</li>
-                            <li><strong>GameJam+ 2022</strong> - Semifinalist</li>
-                            <li><strong>VSGA Junior Programmer</strong> - Participant</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>💼 Additional Experience</h3>
-                    <div class="timeline-description">
-                        <ul>
-                            <li><strong>PT Honda Prospect Motor</strong> - Administration Recruitment</li>
-                            <li><strong>PT Sumber Ria</strong> - Sound System Implementation</li>
-                        </ul>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Vice Chairman - Game Technology Student Association</h3>
+                        <div class="timeline-company">STMM Yogyakarta</div>
+                        <div class="timeline-period">2022</div>
+                        <div class="timeline-description">
+                            <ul>
+                                <li>Supported organizational leadership</li>
+                                <li>Facilitated student collaboration projects</li>
+                                <li>Organized GameJam competitions</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1012,18 +1013,18 @@
                 <h2>LET'S CREATE SOMETHING AMAZING</h2>
                 <p>I'm always excited to collaborate on innovative game projects or discuss new opportunities. Whether you need a skilled Unity developer, Roblox programmer, or game design consultant, let's connect!</p>
                 <div class="contact-links">
-                    <div class="contact-btn" style="cursor: text; user-select: all; background: rgba(0, 255, 136, 0.15);">
-                        📧 sabdayagra13@gmail.com
-                    </div>
-                    <a href="https://www.linkedin.com/in/sabdayagra-ahesa-kharismanusantara-8816a1274/" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <a href="mailto:sabdayagra13@gmail.com" class="contact-btn">
+                        📧 Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/sabdayagra-ahesa-kharismanusantara-8816a1274/" target="_blank" class="contact-btn">
                         💼 LinkedIn
                     </a>
-                    <a href="https://just-sabda.itch.io/" target="_blank" rel="noopener noreferrer" class="contact-btn">
+                    <a href="https://just-sabda.itch.io/" target="_blank" class="contact-btn">
                         🎮 Itch.io Portfolio
                     </a>
-                    <div class="contact-btn" style="cursor: text; user-select: all; background: rgba(0, 255, 136, 0.15);">
+                    <a href="tel:+6282122348450" class="contact-btn">
                         📱 +62 821-2234-8450
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -1033,7 +1034,7 @@
         </footer>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Scroll Progress Indicator
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -1055,10 +1056,7 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
@@ -1078,7 +1076,6 @@
             });
         }, observerOptions);
 
-        // Observe sections for scroll animations
         document.querySelectorAll('section').forEach(section => {
             section.style.opacity = '0';
             section.style.transform = 'translateY(30px)';
@@ -1086,7 +1083,6 @@
             observer.observe(section);
         });
 
-        // Project Cards Stagger Animation
         const projectCards = document.querySelectorAll('.project-card');
         projectCards.forEach((card, index) => {
             card.style.opacity = '0';
@@ -1095,9 +1091,13 @@
             observer.observe(card);
         });
 
-        // Skill Categories Animation
         const skillCategories = document.querySelectorAll('.skill-category');
         skillCategories.forEach((category, index) => {
             category.style.opacity = '0';
             category.style.transform = 'scale(0.9)';
-            category.style.transi
+            category.style.transition = `opacity 0.5s ${index * 0.1}s, transform 0.5s ${index * 0.1}s`;
+            observer.observe(category);
+        });
+    </script>
+</body>
+</html>
